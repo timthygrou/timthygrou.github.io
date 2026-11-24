@@ -1,0 +1,1179 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>st站kiki - 原创视频社区,官方品牌门户</title>
+<meta name="description" content="st站kiki官方网站，专注原创视频内容生态，汇聚优质创作者与真实社区互动，提供高清精品视频与持续运营的陪伴式内容平台。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231b1e2b'/%3E%3Cpath d='M24 20 L46 32 L24 44 Z' fill='%2356e0a8'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --kk-bg:#1b1e2b;
+    --kk-bg2:#232838;
+    --kk-panel:#262c3f;
+    --kk-line:#343c55;
+    --kk-text:#e9edf6;
+    --kk-mut:#9aa5bf;
+    --kk-green:#56e0a8;
+    --kk-green2:#2fbf8a;
+    --kk-cyan:#5ac8f5;
+    --kk-lav:#8f8bf0;
+    --kk-amber:#f5c451;
+    --kk-radius:16px;
+    --kk-head:118px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--kk-bg);
+    color:var(--kk-text);
+    font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,-apple-system,"Segoe UI",sans-serif;
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  button{font-family:inherit;cursor:pointer}
+  .kk-wrap{width:min(1180px,92vw);margin:0 auto}
+  .kk-pad{padding:64px 0}
+  .kk-sec-title{font-size:clamp(1.4rem,2.4vw,1.9rem);letter-spacing:.02em;line-height:1.35}
+  .kk-eyebrow{font-size:.74rem;letter-spacing:.28em;color:var(--kk-green);text-transform:uppercase;margin-bottom:12px;font-weight:600}
+  .kk-mut{color:var(--kk-mut)}
+  .kk-key{color:var(--kk-green)}
+
+  /* ---------- 吸顶公告 + 页头 ---------- */
+  .kk-topbar{
+    position:sticky;top:0;z-index:60;
+    background:var(--kk-bg);
+    border-bottom:1px solid var(--kk-line);
+  }
+  .kk-announce{
+    background:linear-gradient(90deg,#1f3a34 0%,#22303f 55%,#2a2440 100%);
+    border-bottom:1px solid var(--kk-line);
+    font-size:.8rem;
+    overflow:hidden;
+  }
+  .kk-announce-in{
+    display:flex;align-items:center;gap:14px;
+    width:min(1180px,92vw);margin:0 auto;
+    padding:8px 0;
+  }
+  .kk-announce-tag{
+    flex:0 0 auto;
+    background:var(--kk-green);
+    color:#102018;
+    font-weight:700;
+    border-radius:6px;
+    padding:1px 8px;
+    font-size:.72rem;
+    letter-spacing:.06em;
+  }
+  .kk-announce-txt{
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    color:#cfe6dc;
+  }
+  .kk-announce-txt b{color:#fff;font-weight:600}
+  .kk-announce-txt .kk-dot{color:#5d7a72;margin:0 10px}
+
+  .kk-header{background:var(--kk-bg)}
+  .kk-nav{
+    display:flex;align-items:center;gap:22px;
+    padding:14px 0;
+  }
+  .kk-logo{display:flex;align-items:center;gap:10px;flex:0 0 auto}
+  .kk-logo-mark{
+    width:38px;height:38px;border-radius:11px;
+    background:linear-gradient(135deg,var(--kk-green) 0%,#3aa0c9 100%);
+    display:grid;place-items:center;color:#102018;font-weight:800;font-size:1rem;
+    box-shadow:0 4px 16px rgba(86,224,168,.28);
+  }
+  .kk-logo-txt{font-size:1.02rem;font-weight:700;letter-spacing:.03em}
+  .kk-logo-txt span{color:var(--kk-green)}
+  .kk-nav-links{display:flex;gap:20px;margin-left:8px;flex:1 1 auto}
+  .kk-nav-links a{
+    font-size:.9rem;color:var(--kk-mut);padding:6px 2px;
+    border-bottom:2px solid transparent;transition:.2s;white-space:nowrap;
+  }
+  .kk-nav-links a:hover{color:#fff;border-bottom-color:var(--kk-green)}
+  .kk-nav-act{display:flex;align-items:center;gap:10px;flex:0 0 auto}
+  .kk-search-box{
+    display:flex;align-items:center;gap:6px;
+    background:var(--kk-panel);border:1px solid var(--kk-line);
+    border-radius:999px;padding:5px 6px 5px 14px;
+  }
+  .kk-search-box input{
+    background:transparent;border:0;outline:none;color:var(--kk-text);
+    font-size:.85rem;width:132px;
+  }
+  .kk-search-box input::placeholder{color:#6d7891}
+  .kk-search-box button{
+    background:var(--kk-green);color:#102018;border:0;border-radius:999px;
+    width:28px;height:28px;display:grid;place-items:center;font-size:.85rem;font-weight:700;
+  }
+  .kk-btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    border-radius:999px;border:1px solid var(--kk-line);
+    background:transparent;color:var(--kk-text);
+    font-size:.85rem;padding:9px 18px;transition:.22s;white-space:nowrap;
+  }
+  .kk-btn:hover{border-color:var(--kk-green);color:var(--kk-green)}
+  .kk-btn-primary{
+    background:var(--kk-green);border-color:var(--kk-green);color:#102018;font-weight:700;
+    box-shadow:0 6px 20px rgba(86,224,168,.26);
+  }
+  .kk-btn-primary:hover{background:#6cf0bb;border-color:#6cf0bb;color:#102018}
+  .kk-btn-sm{padding:5px 12px;font-size:.76rem}
+  .kk-nav-toggle{
+    display:none;background:var(--kk-panel);border:1px solid var(--kk-line);
+    color:var(--kk-text);border-radius:10px;width:40px;height:40px;font-size:1.1rem;
+  }
+  .kk-search-feedback{
+    display:none;font-size:.78rem;color:var(--kk-amber);
+    padding:0 0 10px;
+  }
+  .kk-search-feedback.on{display:block}
+
+  /* ---------- 首屏 ---------- */
+  .kk-hero{padding:46px 0 30px;background:
+    radial-gradient(900px 380px at 82% -10%,rgba(86,224,168,.13),transparent 62%),
+    radial-gradient(700px 320px at 6% 110%,rgba(143,139,240,.12),transparent 60%);}
+  .kk-hero-grid{
+    display:grid;grid-template-columns:minmax(0,5fr) minmax(0,5fr);
+    gap:40px;align-items:center;
+  }
+  .kk-hero h1{
+    font-size:clamp(2.2rem,4.6vw,3.5rem);line-height:1.12;letter-spacing:-.01em;
+    margin:10px 0 18px;
+  }
+  .kk-hero h1 .kk-g{ color:var(--kk-green); }
+  .kk-hero-lead{font-size:1.02rem;color:#c8d1e4;max-width:36em}
+  .kk-badge-row{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px}
+  .kk-badge{
+    font-size:.74rem;color:#b9e9d4;border:1px solid #2f5b4c;background:#1c2f29;
+    border-radius:999px;padding:3px 11px;letter-spacing:.04em;
+  }
+  .kk-hero-intro{
+    margin-top:18px;color:var(--kk-mut);font-size:.92rem;line-height:1.8;
+    border-left:3px solid #2f5b4c;padding-left:14px;
+  }
+  .kk-hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+  .kk-hero-stats{
+    display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:30px;
+    border-top:1px solid var(--kk-line);padding-top:20px;
+  }
+  .kk-stat-num{font-size:1.5rem;font-weight:800;color:#fff;letter-spacing:.01em;line-height:1.2}
+  .kk-stat-num em{font-style:normal;font-size:.85rem;color:var(--kk-green);margin-left:3px}
+  .kk-stat-lb{font-size:.76rem;color:var(--kk-mut);margin-top:2px}
+  .kk-hero-art{
+    position:relative;border-radius:22px;overflow:hidden;
+    border:1px solid var(--kk-line);background:#141827;
+    box-shadow:0 24px 60px rgba(0,0,0,.42);
+  }
+  .kk-hero-art img{width:100%;height:auto}
+  .kk-hero-art-cap{
+    position:absolute;left:0;right:0;bottom:0;
+    padding:38px 20px 18px;
+    background:linear-gradient(180deg,transparent,rgba(10,13,20,.92));
+    display:flex;align-items:flex-end;justify-content:space-between;gap:16px;
+  }
+  .kk-hero-art-cap h2{font-size:1.02rem;font-weight:700}
+  .kk-hero-art-cap p{font-size:.78rem;color:#a9b6cd}
+  .kk-play-pill{
+    flex:0 0 auto;display:inline-flex;align-items:center;gap:7px;
+    background:rgba(86,224,168,.92);color:#102018;font-weight:700;
+    font-size:.78rem;border-radius:999px;padding:6px 14px;
+  }
+
+  /* ---------- 通用区块头 ---------- */
+  .kk-sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:26px;flex-wrap:wrap}
+  .kk-sec-head p{color:var(--kk-mut);font-size:.9rem;max-width:44em}
+  .kk-sep{border:0;border-top:1px solid var(--kk-line);margin:0}
+
+  /* ---------- 焦点条目 ---------- */
+  .kk-section-dark{background:var(--kk-bg2);border-top:1px solid var(--kk-line);border-bottom:1px solid var(--kk-line)}
+  .kk-focus-grid{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:26px}
+  .kk-card{
+    background:var(--kk-panel);border:1px solid var(--kk-line);border-radius:var(--kk-radius);
+    overflow:hidden;transition:.24s;
+  }
+  .kk-card:hover{transform:translateY(-3px);border-color:#4b5876;box-shadow:0 16px 34px rgba(0,0,0,.32)}
+  .kk-focus-main img{width:100%;aspect-ratio:16/9;object-fit:cover}
+  .kk-focus-main-body{padding:18px 20px 20px}
+  .kk-tag{
+    display:inline-block;font-size:.7rem;letter-spacing:.05em;
+    color:#9fe8cd;background:#1d332c;border:1px solid #2f5b4c;
+    border-radius:6px;padding:1px 8px;margin-right:6px;
+  }
+  .kk-tag.k2{color:#bcd3f8;background:#1d2a3f;border-color:#33506f}
+  .kk-tag.k3{color:#e8d5a7;background:#332d1d;border-color:#5b4c2b}
+  .kk-tag.k4{color:#d8c8f5;background:#2b2340;border-color:#4b3d70}
+  .kk-meta-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;font-size:.78rem;color:var(--kk-mut);margin-top:10px}
+  .kk-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+  .kk-act-btn{
+    background:#1e2434;border:1px solid var(--kk-line);color:var(--kk-mut);
+    border-radius:999px;padding:4px 11px;font-size:.74rem;transition:.18s;
+  }
+  .kk-act-btn:hover{color:#fff;border-color:#5a6a8c}
+  .kk-act-btn.is-on{color:var(--kk-green);border-color:#2f5b4c;background:#1c2f29}
+  .kk-side-list{display:flex;flex-direction:column;gap:14px}
+  .kk-side-item{
+    display:flex;gap:14px;padding:14px;border:1px solid var(--kk-line);border-radius:12px;
+    background:var(--kk-panel);transition:.2s;
+  }
+  .kk-side-item:hover{border-color:#4b5876;background:#2b3247}
+  .kk-side-thumb{flex:0 0 86px;border-radius:9px;overflow:hidden;background:#151a28}
+  .kk-side-thumb img{width:86px;height:60px;object-fit:cover}
+  .kk-side-item h3{font-size:.9rem;line-height:1.45;font-weight:650}
+
+  /* ---------- 列表条目 ---------- */
+  .kk-list{display:flex;flex-direction:column;gap:0}
+  .kk-list-item{
+    display:grid;grid-template-columns:64px minmax(0,1fr) auto;gap:16px;
+    align-items:start;padding:20px 0;border-bottom:1px dashed var(--kk-line);
+  }
+  .kk-list-item:first-child{padding-top:0}
+  .kk-rank{
+    font-size:1.3rem;font-weight:800;color:#3f4a66;line-height:1;
+  }
+  .kk-list-item h3{font-size:1rem;font-weight:650;line-height:1.5}
+  .kk-list-item p{font-size:.85rem;color:var(--kk-mut);margin-top:5px;line-height:1.7}
+  .kk-list-foot{display:flex;flex-wrap:wrap;gap:12px;align-items:center;font-size:.76rem;color:var(--kk-mut);margin-top:8px}
+  .kk-list-act{flex:0 0 auto;display:flex;flex-direction:column;gap:6px;align-items:flex-end}
+
+  /* ---------- 专题 ---------- */
+  .kk-topic-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+  .kk-topic{
+    border:1px solid var(--kk-line);border-radius:var(--kk-radius);
+    background:linear-gradient(180deg,#252b3e,#202535);padding:20px;transition:.24s;
+  }
+  .kk-topic:hover{border-color:#4b5876;transform:translateY(-2px)}
+  .kk-topic-cover{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:10px;margin-bottom:14px}
+  .kk-topic h3{font-size:1rem;font-weight:700;line-height:1.5}
+  .kk-topic .kk-upd{font-size:.72rem;color:var(--kk-amber);margin:6px 0 10px}
+  .kk-topic ul{list-style:none;display:flex;flex-direction:column;gap:7px;margin-top:8px}
+  .kk-topic li{font-size:.82rem;color:#c3ccdf;padding-left:14px;position:relative;line-height:1.6}
+  .kk-topic li::before{content:"";position:absolute;left:0;top:.62em;width:5px;height:5px;border-radius:50%;background:var(--kk-green2)}
+
+  /* ---------- 关键词解析 ---------- */
+  .kk-parse{background:var(--kk-bg2);border-top:1px solid var(--kk-line);border-bottom:1px solid var(--kk-line)}
+  .kk-parse-body{max-width:820px}
+  .kk-parse-body h3{font-size:1.08rem;margin:26px 0 8px;color:#fff;font-weight:700}
+  .kk-parse-body h3:first-child{margin-top:0}
+  .kk-parse-body p{font-size:.92rem;color:#c3ccdf;margin-bottom:12px;line-height:1.9}
+  .kk-parse-quote{
+    border-left:3px solid var(--kk-green);background:#1d2434;border-radius:0 10px 10px 0;
+    padding:14px 18px;font-size:.88rem;color:#b9d9cd;margin:18px 0;line-height:1.8;
+  }
+  .kk-parse-side{display:flex;flex-direction:column;gap:16px}
+  .kk-fact{padding:16px 18px;border:1px solid var(--kk-line);border-radius:12px;background:var(--kk-panel)}
+  .kk-fact h4{font-size:.82rem;color:var(--kk-mut);font-weight:600;letter-spacing:.06em}
+  .kk-fact strong{display:block;font-size:1.5rem;color:var(--kk-green);font-weight:800;margin-top:4px}
+
+  /* ---------- 作者 ---------- */
+  .kk-author-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+  .kk-author{
+    border:1px solid var(--kk-line);border-radius:14px;background:var(--kk-panel);
+    padding:18px;display:flex;flex-direction:column;gap:10px;transition:.22s;
+  }
+  .kk-author:hover{border-color:#4b5876;transform:translateY(-2px)}
+  .kk-avatar{
+    width:46px;height:46px;border-radius:50%;display:grid;place-items:center;
+    font-weight:800;font-size:1rem;color:#102018;background:var(--kk-green);
+  }
+  .kk-avatar.a2{background:var(--kk-cyan);color:#08212d}
+  .kk-avatar.a3{background:var(--kk-amber);color:#2b2107}
+  .kk-avatar.a4{background:var(--kk-lav);color:#150f2b}
+  .kk-author h3{font-size:.94rem;font-weight:700}
+  .kk-author .kk-field{font-size:.74rem;color:var(--kk-green);letter-spacing:.03em}
+  .kk-author .kk-bio{font-size:.8rem;color:var(--kk-mut);line-height:1.7;flex:1}
+  .kk-author .kk-nums{font-size:.74rem;color:#8f9bb6;display:flex;gap:12px;flex-wrap:wrap}
+  .kk-link-btn{
+    background:none;border:0;color:var(--kk-cyan);font-size:.78rem;padding:0;text-align:left;
+  }
+  .kk-link-btn:hover{text-decoration:underline}
+
+  /* ---------- 评价双列 ---------- */
+  .kk-cmt-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+  .kk-cmt{
+    border:1px solid var(--kk-line);border-left:3px solid #3f4a66;
+    border-radius:12px;background:var(--kk-panel);padding:16px 18px;
+  }
+  .kk-cmt:nth-child(3n+2){border-left-color:var(--kk-green2)}
+  .kk-cmt:nth-child(3n){border-left-color:var(--kk-amber)}
+  .kk-cmt p{font-size:.86rem;color:#c3ccdf;line-height:1.8}
+  .kk-cmt .kk-cmt-foot{display:flex;justify-content:space-between;gap:12px;font-size:.74rem;color:var(--kk-mut);margin-top:10px;flex-wrap:wrap}
+  .kk-cmt .kk-star{color:var(--kk-amber);letter-spacing:2px}
+
+  /* ---------- 动态 / FAQ / 合作 ---------- */
+  .kk-biz-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+  .kk-biz{border-top:2px solid var(--kk-green);background:var(--kk-panel);border-radius:0 0 12px 12px;padding:16px 18px}
+  .kk-biz time{font-size:.72rem;color:var(--kk-green);letter-spacing:.05em}
+  .kk-biz h3{font-size:.92rem;margin:6px 0 6px;font-weight:700;line-height:1.5}
+  .kk-biz p{font-size:.8rem;color:var(--kk-mut);line-height:1.7}
+
+  .kk-faq{max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
+  .kk-faq details{
+    background:var(--kk-panel);border:1px solid var(--kk-line);border-radius:12px;
+    padding:0 18px;transition:.2s;
+  }
+  .kk-faq details[open]{border-color:#3a6b58;background:#222a39}
+  .kk-faq summary{
+    cursor:pointer;list-style:none;padding:15px 0;font-size:.9rem;font-weight:600;
+    display:flex;justify-content:space-between;gap:14px;align-items:center;
+  }
+  .kk-faq summary::-webkit-details-marker{display:none}
+  .kk-faq summary::after{content:"+";color:var(--kk-green);font-weight:700;font-size:1.1rem;flex:0 0 auto}
+  .kk-faq details[open] summary::after{content:"–"}
+  .kk-faq details p{font-size:.84rem;color:var(--kk-mut);padding:0 0 16px;line-height:1.8}
+
+  .kk-partner-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+  .kk-partner{
+    border:1px solid var(--kk-line);border-radius:12px;background:#20253400;
+    background:var(--kk-panel);padding:16px;display:flex;align-items:center;gap:10px;
+    font-size:.85rem;color:#c3ccdf;
+  }
+  .kk-partner-mark{
+    width:30px;height:30px;border-radius:8px;flex:0 0 auto;
+    background:linear-gradient(135deg,#2f5b4c,#3a5876);display:grid;place-items:center;
+    font-size:.75rem;font-weight:800;color:#d5f5e7;
+  }
+
+  /* ---------- 页脚 ---------- */
+  .kk-footer{background:#141824;border-top:1px solid var(--kk-line);padding:52px 0 28px;margin-top:10px}
+  .kk-foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:30px}
+  .kk-foot-brand p{font-size:.83rem;color:var(--kk-mut);margin-top:12px;line-height:1.85;max-width:30em}
+  .kk-foot-col h4{font-size:.82rem;letter-spacing:.1em;color:#fff;margin-bottom:12px;font-weight:700}
+  .kk-foot-col a,.kk-foot-col span{display:block;font-size:.82rem;color:var(--kk-mut);line-height:2}
+  .kk-foot-col a:hover{color:var(--kk-green)}
+  .kk-foot-bottom{
+    border-top:1px solid var(--kk-line);margin-top:34px;padding-top:18px;
+    display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;
+    font-size:.76rem;color:#6d7891;
+  }
+
+  /* ---------- 回到顶部 & Toast & 弹窗 ---------- */
+  .kk-top-btn{
+    position:fixed;right:22px;bottom:24px;z-index:70;
+    width:44px;height:44px;border-radius:50%;
+    background:var(--kk-green);color:#102018;border:0;font-size:1.05rem;font-weight:800;
+    display:none;place-items:center;box-shadow:0 8px 22px rgba(86,224,168,.32);
+  }
+  .kk-top-btn.on{display:grid}
+  .kk-toast{
+    position:fixed;left:50%;bottom:34px;transform:translate(-50%,20px);
+    background:#e9edf6;color:#151a28;font-size:.84rem;font-weight:600;
+    padding:10px 20px;border-radius:999px;z-index:90;opacity:0;pointer-events:none;
+    transition:.26s;box-shadow:0 12px 30px rgba(0,0,0,.4);
+  }
+  .kk-toast.on{opacity:1;transform:translate(-50%,0)}
+
+  .kk-modal-mask{
+    position:fixed;inset:0;background:rgba(8,11,18,.72);z-index:80;
+    display:none;align-items:center;justify-content:center;padding:20px;
+  }
+  .kk-modal-mask.on{display:flex}
+  .kk-modal{
+    background:var(--kk-panel);border:1px solid var(--kk-line);border-radius:18px;
+    width:min(520px,100%);padding:24px;position:relative;max-height:86vh;overflow:auto;
+  }
+  .kk-modal h3{font-size:1.06rem;margin-bottom:10px}
+  .kk-modal p{font-size:.86rem;color:var(--kk-mut);line-height:1.85}
+  .kk-modal .kk-close{
+    position:absolute;top:12px;right:12px;width:32px;height:32px;border-radius:50%;
+    background:#1e2434;border:1px solid var(--kk-line);color:var(--kk-mut);font-size:1rem;
+  }
+  .kk-modal .kk-close:hover{color:#fff}
+
+  /* ---------- 响应式 ---------- */
+  @media (max-width:1024px){
+    .kk-hero-grid{grid-template-columns:1fr;gap:30px}
+    .kk-focus-grid{grid-template-columns:1fr}
+    .kk-topic-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .kk-author-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .kk-foot-grid{grid-template-columns:1fr 1fr}
+    .kk-partner-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .kk-parse-grid{grid-template-columns:1fr !important}
+  }
+  @media (max-width:860px){
+    .kk-nav-links{
+      display:none;position:absolute;left:0;right:0;top:100%;
+      flex-direction:column;gap:0;background:var(--kk-bg2);
+      border-bottom:1px solid var(--kk-line);padding:8px 6vw 14px;margin:0;
+    }
+    .kk-nav-links.on{display:flex}
+    .kk-nav-links a{padding:11px 4px;border-bottom:1px solid var(--kk-line);font-size:.9rem}
+    .kk-nav-toggle{display:grid;place-items:center}
+    .kk-header{position:relative}
+    .kk-search-box input{width:100px}
+    .kk-biz-grid{grid-template-columns:1fr}
+    .kk-cmt-grid{grid-template-columns:1fr}
+    .kk-hero-stats{gap:8px}
+    .kk-list-item{grid-template-columns:minmax(0,1fr);gap:8px}
+    .kk-list-act{flex-direction:row;justify-content:flex-start;align-items:center;flex-wrap:wrap}
+    .kk-list-item .kk-rank{font-size:1rem}
+  }
+  @media (max-width:620px){
+    .kk-pad{padding:44px 0}
+    .kk-topic-grid{grid-template-columns:1fr}
+    .kk-author-grid{grid-template-columns:1fr}
+    .kk-foot-grid{grid-template-columns:1fr}
+    .kk-hero-stats{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .kk-stat-num{font-size:1.15rem}
+    .kk-nav-act .kk-btn-primary{display:none}
+    .kk-announce-tag{font-size:.66rem}
+  }
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- ============ 公告条 + 页头（吸顶） ============ -->
+<div class="kk-topbar">
+  <div class="kk-announce">
+    <div class="kk-announce-in">
+      <span class="kk-announce-tag">官方发布</span>
+      <div class="kk-announce-txt">
+        <b>11·22 冬季企划《镜头里的日常》正式上线</b><span class="kk-dot">·</span>新增 46 条高清原创视频<span class="kk-dot">·</span>“城市影像挑战赛”报名通道开启，投稿截止 12 月 8 日<span class="kk-dot">·</span>创作者扶持计划第三期名单公布
+      </div>
+    </div>
+  </div>
+  <header class="kk-header">
+    <div class="kk-wrap">
+      <nav class="kk-nav" aria-label="主导航">
+        <a class="kk-logo" href="#kk-hero" aria-label="st站kiki 首页">
+          <span class="kk-logo-mark">K</span>
+          <span class="kk-logo-txt">st站<span>kiki</span></span>
+        </a>
+        <div class="kk-nav-links" id="kkNavLinks">
+          <a href="#kk-focus">焦点内容</a>
+          <a href="#kk-topic">专题企划</a>
+          <a href="#kk-parse">品牌解析</a>
+          <a href="#kk-author">创作者</a>
+          <a href="#kk-cmt">社区口碑</a>
+          <a href="#kk-faq">帮助中心</a>
+        </div>
+        <div class="kk-nav-act">
+          <div class="kk-search-box">
+            <input id="kkSearchInput" type="search" placeholder="搜索视频 / 创作者" aria-label="站内搜索">
+            <button id="kkSearchBtn" type="button" aria-label="搜索">→</button>
+          </div>
+          <a class="kk-btn kk-btn-primary" href="#kk-join">加入社区</a>
+          <button class="kk-nav-toggle" id="kkNavToggle" type="button" aria-label="展开导航" aria-expanded="false">☰</button>
+        </div>
+      </nav>
+      <div class="kk-search-feedback" id="kkSearchFeedback" role="status"></div>
+    </div>
+  </header>
+</div>
+
+<main>
+  <!-- ============ 首屏 ============ -->
+  <section class="kk-hero" id="kk-hero">
+    <div class="kk-wrap">
+      <div class="kk-hero-grid">
+        <div>
+          <div class="kk-eyebrow">OFFICIAL VIDEO COMMUNITY</div>
+          <h1>st站kiki · <span class="kk-g">原创视频社区</span></h1>
+          <p class="kk-hero-lead">这里是 st站kiki 官方网站。我们用真实影像记录日常，用持续运营的社区陪伴每一位创作者，让好内容被认真看见。</p>
+          <div class="kk-badge-row">
+            <span class="kk-badge">官方网站</span>
+            <span class="kk-badge">高清正版</span>
+            <span class="kk-badge">原创内容生态</span>
+            <span class="kk-badge">值得信赖的社区</span>
+          </div>
+          <p class="kk-hero-intro">
+            作为持续深耕视频垂直领域的品牌，st站kiki 官网汇聚生活方式、城市探索、创作幕后与实用经验四大内容方向。平台坚持原创与正版，为创作者提供稳定的上传、剪辑与分发工具，为企业与观众搭建高品质的内容生态。企业团队以“用户至上、真实陪伴”为底色，让每一条高清视频都经得起回看。
+          </p>
+          <div class="kk-hero-cta">
+            <a class="kk-btn kk-btn-primary" href="#kk-focus">探索精品内容</a>
+            <a class="kk-btn" href="#kk-join">投稿与报名</a>
+          </div>
+          <div class="kk-hero-stats">
+            <div>
+              <div class="kk-stat-num">2,180<em>万</em></div>
+              <div class="kk-stat-lb">累计播放次数</div>
+            </div>
+            <div>
+              <div class="kk-stat-num">6,400<em>+</em></div>
+              <div class="kk-stat-lb">常驻创作者</div>
+            </div>
+            <div>
+              <div class="kk-stat-num">98.6<em>%</em></div>
+              <div class="kk-stat-lb">社区好评率</div>
+            </div>
+          </div>
+        </div>
+        <figure class="kk-hero-art">
+          <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 720 540'%3E%3Cdefs%3E%3ClinearGradient id='sky' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23263a53'/%3E%3Cstop offset='1' stop-color='%2312182a'/%3E%3C/linearGradient%3E%3ClinearGradient id='glow' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2356e0a8'/%3E%3Cstop offset='1' stop-color='%235ac8f5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='720' height='540' fill='url(%23sky)'/%3E%3Ccircle cx='540' cy='140' r='96' fill='%2356e0a8' opacity='0.16'/%3E%3Ccircle cx='540' cy='140' r='58' fill='url(%23glow)' opacity='0.62'/%3E%3Cpath d='M0 400 L150 300 L280 360 L420 260 L560 340 L720 250 L720 540 L0 540 Z' fill='%231a2437'/%3E%3Cpath d='M0 460 L120 400 L260 450 L400 380 L540 440 L720 380 L720 540 L0 540 Z' fill='%2313182a'/%3E%3Cg stroke='%2356e0a8' stroke-width='2' opacity='0.5' fill='none'%3E%3Cpath d='M60 120 h120 M60 120 v70'/%3E%3Cpath d='M600 430 h80 M680 430 v-60'/%3E%3C/g%3E%3Cg fill='%2356e0a8'%3E%3Ccircle cx='120' cy='470' r='3'/%3E%3Ccircle cx='200' cy='488' r='2'/%3E%3Ccircle cx='300' cy='462' r='3'/%3E%3Ccircle cx='470' cy='495' r='2'/%3E%3Ccircle cx='590' cy='470' r='3'/%3E%3C/g%3E%3Crect x='300' y='190' width='120' height='76' rx='10' fill='%230e1422' stroke='%23343c55' stroke-width='2'/%3E%3Cpath d='M348 214 L382 228 L348 242 Z' fill='%2356e0a8'/%3E%3C/svg%3E" alt="st站kiki 官网首屏主视觉：夜色山脊上亮起的播放窗口与频道光点" width="720" height="540">
+          <figcaption class="kk-hero-art-cap">
+            <div>
+              <h2>本周编辑推荐 · 《夜色里的城市切片》</h2>
+              <p>4K 高清 · 城市探索 · 时长 18:26</p>
+            </div>
+            <span class="kk-play-pill">▶ 立即播放</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 焦点内容 ============ -->
+  <section class="kk-section-dark kk-pad" id="kk-focus">
+    <div class="kk-wrap">
+      <div class="kk-sec-head">
+        <div>
+          <div class="kk-eyebrow">FOCUS · 本周焦点</div>
+          <h2 class="kk-sec-title">焦点内容：st站kiki 的精品内容第一现场</h2>
+          <p>由编辑团队与社区共同挑选，呈现本周最值得完整看完的原创视频。每一项都标注标签、作者与真实互动数据。</p>
+        </div>
+        <button class="kk-btn kk-btn-sm" type="button" data-kk-toast="已为你展开全部焦点内容">查看全部</button>
+      </div>
+
+      <div class="kk-focus-grid">
+        <article class="kk-card kk-focus-main">
+          <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%231a2033'/%3E%3Cg%3E%3Cline x1='0' y1='330' x2='800' y2='330' stroke='%23313c58' stroke-width='2'/%3E%3Cline x1='0' y1='380' x2='800' y2='380' stroke='%23313c58' stroke-width='1'/%3E%3C/g%3E%3Cg fill='%23223046'%3E%3Crect x='70' y='210' width='70' height='120'/%3E%3Crect x='160' y='160' width='56' height='170'/%3E%3Crect x='236' y='240' width='90' height='90'/%3E%3Crect x='350' y='120' width='64' height='210'/%3E%3Crect x='436' y='190' width='80' height='140'/%3E%3Crect x='540' y='150' width='52' height='180'/%3E%3Crect x='616' y='230' width='96' height='100'/%3E%3C/g%3E%3Cg fill='%2356e0a8' opacity='0.85'%3E%3Crect x='92' y='238' width='10' height='10'/%3E%3Crect x='182' y='192' width='10' height='10'/%3E%3Crect x='374' y='152' width='10' height='10'/%3E%3Crect x='560' y='180' width='10' height='10'/%3E%3Crect x='646' y='258' width='10' height='10'/%3E%3C/g%3E%3Ccircle cx='660' cy='90' r='40' fill='%23f5c451' opacity='0.28'/%3E%3Ccircle cx='660' cy='90' r='22' fill='%23f5c451' opacity='0.6'/%3E%3Crect x='56' y='52' width='146' height='30' rx='15' fill='%232f5b4c'/%3E%3Ctext x='72' y='72' font-family='sans-serif' font-size='15' fill='%239fe8cd'%3E%E5%9F%8E%E5%B8%82%E6%8E%A2%E7%B4%A2%3C/text%3E%3C/svg%3E" alt="焦点内容《夜色里的城市切片》封面：高楼剪影与暖黄路灯下的街道" width="800" height="450">
+          <div class="kk-focus-main-body">
+            <div>
+              <span class="kk-tag">城市探索</span>
+              <span class="kk-tag k2">高清 4K</span>
+              <span class="kk-tag k3">编辑推荐</span>
+            </div>
+            <h3 style="font-size:1.18rem;margin-top:10px;line-height:1.5">《夜色里的城市切片》：用 18 分钟走完一条老街的十二个小时</h3>
+            <p class="kk-mut" style="font-size:.88rem;margin-top:8px">从清晨的早餐铺到深夜的收摊灯，创作者用一台手持稳定器记录下这条街的完整呼吸，没有旁白，只有环境声与人物对话，是 st站kiki 城市探索方向的口碑之作。</p>
+            <div class="kk-meta-row">
+              <span>作者：林间慢镜</span><span>播放 42.6 万</span><span>点赞 3.8 万</span><span>收藏 1.2 万</span>
+            </div>
+            <div class="kk-actions">
+              <button class="kk-act-btn" type="button" data-kk-like>♡ 点赞</button>
+              <button class="kk-act-btn" type="button" data-kk-fav>☆ 收藏</button>
+              <button class="kk-act-btn" type="button" data-kk-share>复制链接</button>
+            </div>
+          </div>
+        </article>
+
+        <div class="kk-side-list">
+          <article class="kk-side-item">
+            <div class="kk-side-thumb">
+              <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 172 120'%3E%3Crect width='172' height='120' fill='%23222b3f'/%3E%3Ccircle cx='120' cy='40' r='26' fill='%235ac8f5' opacity='0.35'/%3E%3Cpath d='M0 92 L46 66 L86 86 L128 60 L172 84 L172 120 L0 120 Z' fill='%23151c2c'/%3E%3Crect x='20' y='20' width='52' height='8' rx='4' fill='%2356e0a8' opacity='0.7'/%3E%3C/svg%3E" alt="经验分享视频《一个人做视频的第一年》缩略图：浅蓝圆日与山形剪影" width="172" height="120">
+            </div>
+            <div>
+              <h3>《一个人做视频的第一年》：素材、脚本与剪辑的三次推翻</h3>
+              <div class="kk-meta-row"><span>经验分享</span><span>8.2 万播放</span></div>
+            </div>
+          </article>
+          <article class="kk-side-item">
+            <div class="kk-side-thumb">
+              <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 172 120'%3E%3Crect width='172' height='120' fill='%232a2438'/%3E%3Cg stroke='%23f5c451' stroke-width='2' fill='none' opacity='0.7'%3E%3Cpath d='M16 96 C60 40 110 100 156 44'/%3E%3C/g%3E%3Ccircle cx='56' cy='52' r='8' fill='%23f5c451' opacity='0.8'/%3E%3Ccircle cx='118' cy='78' r='5' fill='%23f5c451' opacity='0.6'/%3E%3C/svg%3E" alt="人物访谈视频《手作人的十年》缩略图：琥珀色线条与手工温度感" width="172" height="120">
+            </div>
+            <div>
+              <h3>《手作人的十年》：一间小工坊如何留住手艺与客人</h3>
+              <div class="kk-meta-row"><span>人物访谈</span><span>6.4 万播放</span></div>
+            </div>
+          </article>
+          <article class="kk-side-item">
+            <div class="kk-side-thumb">
+              <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 172 120'%3E%3Crect width='172' height='120' fill='%231c2a28'/%3E%3Cg fill='%2356e0a8' opacity='0.55'%3E%3Crect x='26' y='58' width='14' height='38'/%3E%3Crect x='50' y='42' width='14' height='54'/%3E%3Crect x='74' y='30' width='14' height='66'/%3E%3Crect x='98' y='50' width='14' height='46'/%3E%3Crect x='122' y='64' width='14' height='32'/%3E%3C/g%3E%3Crect x='26' y='100' width='110' height='2' fill='%2356e0a8'/%3E%3C/svg%3E" alt="教程干货视频《剪辑节奏的 7 个细节》缩略图：绿色柱状节奏图" width="172" height="120">
+            </div>
+            <div>
+              <h3>《剪辑节奏的 7 个细节》：让观众愿意看到最后一秒</h3>
+              <div class="kk-meta-row"><span>教程干货</span><span>11.1 万播放</span></div>
+            </div>
+          </article>
+          <button class="kk-btn" type="button" data-kk-toast="已加载更多编辑推荐，共 24 条">加载更多推荐</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 视频条目列表 ============ -->
+  <section class="kk-pad" id="kk-videos">
+    <div class="kk-wrap">
+      <div class="kk-sec-head">
+        <div>
+          <div class="kk-eyebrow">VIDEO STREAM · 热门视频流</div>
+          <h2 class="kk-sec-title">热门视频：st站kiki 社区正在被反复观看的 5 条内容</h2>
+          <p>以文字索引为主，重点条目配缩略图。每项包含标题、摘要、标签、作者、播放与互动数据，可一键点赞、收藏与复制链接。</p>
+        </div>
+      </div>
+      <div class="kk-list">
+        <article class="kk-list-item">
+          <div class="kk-rank">01</div>
+          <div>
+            <h3>《早市三小时》：一座城市最诚实的清晨</h3>
+            <p>创作者用三个小时的连续拍摄，记录了早市从摆摊到收摊的完整过程。没有配乐，只有菜刀、称重与吆喝声，被认为是 st站kiki 生活记录方向的标杆作品。</p>
+            <div class="kk-list-foot">
+              <span class="kk-tag">日常记录</span><span>作者：阿岚的镜头</span><span>播放 38.9 万</span><span>点赞 2.6 万</span><span>收藏 9,430</span>
+            </div>
+          </div>
+          <div class="kk-list-act">
+            <button class="kk-act-btn" type="button" data-kk-like>♡ 点赞</button>
+            <button class="kk-act-btn" type="button" data-kk-fav>☆ 收藏</button>
+          </div>
+        </article>
+        <article class="kk-list-item">
+          <div class="kk-rank">02</div>
+          <div>
+            <h3>《一台相机拍完四季》：普通人也能完成的年度影像计划</h3>
+            <p>作者把同一棵树拍了整整一年，分享拍摄机位、时间选择与后期统一色调的具体做法，评论区里已有三百多位观众晒出自己的四季照片。</p>
+            <div class="kk-list-foot">
+              <span class="kk-tag k2">实用技巧</span><span>作者：快门与风</span><span>播放 27.4 万</span><span>点赞 1.9 万</span><span>收藏 12,800</span>
+            </div>
+          </div>
+          <div class="kk-list-act">
+            <button class="kk-act-btn" type="button" data-kk-like>♡ 点赞</button>
+            <button class="kk-act-btn" type="button" data-kk-fav>☆ 收藏</button>
+          </div>
+        </article>
+        <article class="kk-list-item">
+          <div class="kk-rank">03</div>
+          <div>
+            <h3>《我为什么坚持做长视频》：一次关于内容生态的坦白</h3>
+            <p>一位从业六年的创作者聊了聊长视频的困境与回报，坦言“不是每条内容都要爆”，并分享了 st站kiki 创作者扶持计划对他的实际帮助。</p>
+            <div class="kk-list-foot">
+              <span class="kk-tag k3">行业观察</span><span>作者：老周不剪辑</span><span>播放 21.7 万</span><span>点赞 1.5 万</span><span>收藏 6,210</span>
+            </div>
+          </div>
+          <div class="kk-list-act">
+            <button class="kk-act-btn" type="button" data-kk-like>♡ 点赞</button>
+            <button class="kk-act-btn" type="button" data-kk-fav>☆ 收藏</button>
+          </div>
+        </article>
+        <article class="kk-list-item">
+          <div class="kk-rank">04</div>
+          <div>
+            <h3>《厨房里的十分钟》：下班后的一顿热饭</h3>
+            <p>没有复杂摆盘，只有真实厨房。作者把镜头固定在一个位置，记录从洗菜到吃饭的十分钟，被观众称为“最治愈的加班后影像”。</p>
+            <div class="kk-list-foot">
+              <span class="kk-tag k4">治愈影像</span><span>作者：锅里的小林</span><span>播放 19.2 万</span><span>点赞 1.7 万</span><span>收藏 5,760</span>
+            </div>
+          </div>
+          <div class="kk-list-act">
+            <button class="kk-act-btn" type="button" data-kk-like>♡ 点赞</button>
+            <button class="kk-act-btn" type="button" data-kk-fav>☆ 收藏</button>
+          </div>
+        </article>
+        <article class="kk-list-item">
+          <div class="kk-rank">05</div>
+          <div>
+            <h3>《剪辑室的凌晨三点》：创作幕后的真实切片</h3>
+            <p>摄制组跟拍了一位剪辑师的一整夜，从素材整理到导出成片，记录了那些不被看见的重复劳动，也让更多人理解了“原创”二字的重量。</p>
+            <div class="kk-list-foot">
+              <span class="kk-tag">创作幕后</span><span>作者：幕后小组</span><span>播放 16.8 万</span><span>点赞 1.2 万</span><span>收藏 4,380</span>
+            </div>
+          </div>
+          <div class="kk-list-act">
+            <button class="kk-act-btn" type="button" data-kk-like>♡ 点赞</button>
+            <button class="kk-act-btn" type="button" data-kk-fav>☆ 收藏</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 专题企划 ============ -->
+  <section class="kk-section-dark kk-pad" id="kk-topic">
+    <div class="kk-wrap">
+      <div class="kk-sec-head">
+        <div>
+          <div class="kk-eyebrow">SERIES · 专题企划</div>
+          <h2 class="kk-sec-title">专题企划：三种方式进入 st站kiki 的内容世界</h2>
+          <p>由官方编辑部发起，创作者共同参与的长期企划。每个专题持续更新，保留完整的内容目录与更新状态。</p>
+        </div>
+      </div>
+      <div class="kk-topic-grid">
+        <article class="kk-topic">
+          <img class="kk-topic-cover" src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 225'%3E%3Crect width='400' height='225' fill='%231d2434'/%3E%3Cg stroke='%2356e0a8' stroke-width='1.5' opacity='0.6' fill='none'%3E%3Ccircle cx='90' cy='112' r='42'/%3E%3Ccircle cx='90' cy='112' r='22'/%3E%3Cpath d='M150 112 h220'/%3E%3C/g%3E%3Cg fill='%235ac8f5' opacity='0.7'%3E%3Crect x='180' y='58' width='60' height='8' rx='4'/%3E%3Crect x='180' y='78' width='120' height='6' rx='3'/%3E%3Crect x='180' y='94' width='90' height='6' rx='3'/%3E%3C/g%3E%3Cg fill='%23f5c451' opacity='0.75'%3E%3Crect x='180' y='140' width='46' height='46' rx='8'/%3E%3C/g%3E%3C/svg%3E" alt="专题《镜头里的日常》封面：镜头光圈与内容清单的图形组合" width="400" height="225">
+          <h3>《镜头里的日常》冬季篇</h3>
+          <div class="kk-upd">更新中 · 已上线 12 / 20 期</div>
+          <p class="kk-mut" style="font-size:.82rem">把普通一天拍成可以被记住的影像，鼓励创作者用最少设备完成一次完整叙事。</p>
+          <ul>
+            <li>第 12 期 ·《下班后的一小时》</li>
+            <li>第 11 期 ·《阳台上的四季》</li>
+            <li>第 10 期 ·《通勤路上的 20 分钟》</li>
+          </ul>
+        </article>
+        <article class="kk-topic">
+          <img class="kk-topic-cover" src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 225'%3E%3Crect width='400' height='225' fill='%23272033'/%3E%3Cg fill='none' stroke='%238f8bf0' stroke-width='2' opacity='0.65'%3E%3Cpath d='M40 170 L120 90 L180 130 L260 60 L360 120'/%3E%3C/g%3E%3Cg fill='%238f8bf0'%3E%3Ccircle cx='120' cy='90' r='7'/%3E%3Ccircle cx='260' cy='60' r='7'/%3E%3Ccircle cx='360' cy='120' r='7'/%3E%3C/g%3E%3Cg fill='%23e8d5a7' opacity='0.65'%3E%3Crect x='40' y='40' width='88' height='6' rx='3'/%3E%3Crect x='40' y='56' width='56' height='6' rx='3'/%3E%3C/g%3E%3C/svg%3E" alt="专题《城市影像挑战赛》封面：紫色折线与节点构成的路线图" width="400" height="225">
+          <h3>《城市影像挑战赛》第二季</h3>
+          <div class="kk-upd">报名中 · 投稿截止 12 月 8 日</div>
+          <p class="kk-mut" style="font-size:.82rem">以“我所在的城市”为题，用不超过 5 分钟的视频讲一个具体故事，官方提供流量扶持与专业评审反馈。</p>
+          <ul>
+            <li>赛制说明 · 三分钟读懂评审标准</li>
+            <li>参赛作品 ·《桥下的理发摊》</li>
+            <li>参赛作品 ·《凌晨四点的豆浆店》</li>
+          </ul>
+        </article>
+        <article class="kk-topic">
+          <img class="kk-topic-cover" src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 225'%3E%3Crect width='400' height='225' fill='%231f2a2b'/%3E%3Cg fill='%2356e0a8' opacity='0.5'%3E%3Ccircle cx='96' cy='112' r='52'/%3E%3C/g%3E%3Cg fill='%23131d1e'%3E%3Cpath d='M96 60 a52 52 0 0 0 0 104 z'/%3E%3C/g%3E%3Cg fill='%23f5c451' opacity='0.8'%3E%3Ccircle cx='96' cy='112' r='14'/%3E%3C/g%3E%3Cg fill='%23b8c6dd' opacity='0.55'%3E%3Crect x='176' y='68' width='150' height='7' rx='3.5'/%3E%3Crect x='176' y='88' width='110' height='7' rx='3.5'/%3E%3Crect x='176' y='108' width='168' height='7' rx='3.5'/%3E%3Crect x='176' y='128' width='92' height='7' rx='3.5'/%3E%3C/g%3E%3C/svg%3E" alt="专题《创作者扶持计划》封面：绿色圆环与横向文字条" width="400" height="225">
+          <h3>《创作者扶持计划》第三期</h3>
+          <div class="kk-upd">已公布 · 本期入选 28 位</div>
+          <p class="kk-mut" style="font-size:.82rem">为持续运营的原创创作者提供设备借用、剪辑指导与官方推荐位，重点支持真实生活记录与在地文化题材。</p>
+          <ul>
+            <li>入选名单 · 28 位创作者完整档案</li>
+            <li>扶持手记 ·《第一次拿到官方推荐之后》</li>
+            <li>申请须知 · 第四期开放时间预告</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 品牌解析（800字以上） ============ -->
+  <section class="kk-parse kk-pad" id="kk-parse">
+    <div class="kk-wrap">
+      <div class="kk-sec-head">
+        <div>
+          <div class="kk-eyebrow">BRAND INSIGHT · 品牌解析</div>
+          <h2 class="kk-sec-title">读懂 st站kiki：一个视频社区如何建立自己的内容生态</h2>
+        </div>
+      </div>
+      <div class="kk-parse-grid" style="display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:34px;align-items:start">
+        <div class="kk-parse-body">
+          <h3>一、st站kiki 是什么：从视频工具到内容社区</h3>
+          <p>st站kiki 最初只是一个方便创作者整理素材、导出高清成片的小工具，团队最初只有五个人。随着越来越多用户把作品上传到同一个空间，讨论、点评与二次创作随之出现，一个以视频为共同语言的社区逐渐成形。今天我们更愿意把 st站kiki 定义为一个原创视频社区：它不是单向的分发渠道，而是创作者、观众与企业共同维护的内容生态。官网在这里承担的不只是展示功能，更是品牌对外的正式承诺——平台规则、活动公告、创作者扶持与更新日志都会在此同步，让每一位用户都能清楚知道内容从哪里来、走向哪里。</p>
+          <p>过去几年里，平台坚持三条并不讨巧的原则。第一，所有官方推荐位只推荐可追溯来源的原创内容；第二，不鼓励用夸张封面和标题换取点击，编辑团队会定期复核首页推荐；第三，长期运营比短期爆发更重要，因此平台愿意把资源给到稳定更新的中小创作者。这三条原则看起来朴素，却让 st站kiki 在众多视频平台中形成了相对稳定的口碑。</p>
+
+          <h3>二、内容生态：四种方向与它们各自的观看方式</h3>
+          <p>在内容结构上，st站kiki 目前聚焦四个方向，每个方向都对应不同的观看场景。第一是生活方式，包括日常记录、家居收纳、厨房与饮食，这类内容大多时长适中，适合在通勤和休息时完整看完；第二是城市探索与在地文化，创作者走向街头、市场、老工厂，用影像保留正在消失的细节；第三是经验分享与教程干货，从拍摄设备选择到剪辑节奏，内容密度高、可反复回看；第四是创作幕后与行业观察，让观众理解一条视频背后的时间成本与团队协作。</p>
+          <p>围绕这四个方向，平台建立了相对清晰的分发逻辑。首页焦点位每周更新一次，由编辑团队与社区投票共同决定；热门视频流按完播率和互动质量排序，而非单纯播放量；专题企划则承担长期叙事的任务，让同题材内容形成连续关系。这样的安排让不同类型的创作者都能找到合适的展示位置：擅长短平快内容的作者可以在热门流里被看见，擅长深度叙事的作者可以在专题里获得空间。</p>
+          <div class="kk-parse-quote">“我们不追求让所有人都喜欢同一条视频，而是希望每个人都能在 st站kiki 找到愿意长期关注的那位创作者。”这是团队在多次内部讨论中反复提到的一句话，也解释了平台为什么愿意把大量精力放在创作者档案与专题目录上。</div>
+
+          <h3>三、社区机制：互动不是按钮，而是关系</h3>
+          <p>很多视频平台把点赞、收藏、评论当作数据指标，而在 st站kiki，这些按钮首先被当作关系工具。点赞是“我看完了并且认可”，收藏是“我之后可能用得上”，评论则是“我愿意花时间说你一句”。为了让互动更有意义，平台在评论区分组展示短评、引用摘录与评分摘要，避免所有声音被压缩成同一形式的文字流。创作者可以在后台看到评论的分布结构，从而更准确地判断观众真正关心什么。</p>
+          <p>平台同时设定了明确的社区规范：禁止搬运与二次剪辑冒充原创，禁止恶意刷量，禁止在评论区进行人身攻击。对于初犯者以提醒为主，对于持续违规的账号则限制推荐位。规则听起来严格，但用户调研显示，正是因为边界清楚，创作者才更愿意在评论区认真交流。社区运营团队每月会发布一次社区月报，公开处理数据与改进措施，这也是平台强调“持续运营”和“值得信赖”的具体做法。</p>
+
+          <h3>四、企业视角：品牌、责任与长期主义</h3>
+          <p>从企业视角看，st站kiki 并不打算做一个只追求规模的平台。团队更在意的是内容品质与行业影响力的平衡：一方面通过创作者扶持计划、官方比赛与挑战赛，让新人有被看见的机会；另一方面通过版权保护与正版高清标准，维护整个内容生态的底线。平台也承担相应的社会责任，例如与地方文化机构合作记录口述史，为公益项目提供影像支持，并把这些内容放在官网固定入口，让更多人看到影像的力量。</p>
+          <p>对品牌方而言，st站kiki 提供的不只是曝光位，而是与创作者共同完成内容的能力。平台会协助品牌梳理真实的产品故事，再交由合适的创作者拍摄呈现，避免生硬的广告口播。这样的合作方式转化周期更长，但口碑更稳定，也更符合社区用户的期待。未来，st站kiki 会继续深耕视频垂直领域，围绕拍摄、剪辑、发布、互动四个环节打磨工具与规则，让“原创”“高清”“专业”不只是宣传词，而是可被验证的日常。</p>
+          <p>如果你刚来到 st站kiki，建议从本期焦点内容开始，完整看完一条长视频，再去创作者档案里看看他们的其他作品。你会发现，这个社区最珍贵的部分不是某一条爆款，而是那些持续更新、认真对待每个镜头的创作者，以及愿意认真观看的观众。</p>
+        </div>
+        <aside class="kk-parse-side">
+          <div class="kk-fact">
+            <h4>累计原创视频</h4>
+            <strong>38,600+</strong>
+          </div>
+          <div class="kk-fact">
+            <h4>平均完播率</h4>
+            <strong>62.4%</strong>
+          </div>
+          <div class="kk-fact">
+            <h4>专题企划累计期数</h4>
+            <strong>146 期</strong>
+          </div>
+          <div class="kk-fact">
+            <h4>社区月报发布</h4>
+            <strong>连续 41 个月</strong>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 创作者矩阵 ============ -->
+  <section class="kk-pad" id="kk-author">
+    <div class="kk-wrap">
+      <div class="kk-sec-head">
+        <div>
+          <div class="kk-eyebrow">CREATORS · 创作者矩阵</div>
+          <h2 class="kk-sec-title">st站kiki 的创作者：把日常拍成作品的人</h2>
+          <p>他们来自不同城市、不同职业，但都在用自己的方式记录真实。点击名字可查看完整创作者档案。</p>
+        </div>
+      </div>
+      <div class="kk-author-grid">
+        <article class="kk-author">
+          <div class="kk-avatar">林</div>
+          <h3>林间慢镜</h3>
+          <div class="kk-field">城市探索 · 在地文化</div>
+          <p class="kk-bio">常驻南方老城区，习惯用手持稳定器走完整条街。作品节奏缓慢，偏爱环境声与长镜头，认为“最好的旁白是现场的声音”。已连续更新三年，是 st站kiki 城市方向最具代表性的创作者之一。</p>
+          <div class="kk-nums"><span>作品 86</span><span>粉丝 12.4 万</span></div>
+          <button class="kk-link-btn" type="button" data-kk-author="林间慢镜|城市探索与在地文化，作品 86 条，粉丝 12.4 万。三年持续拍摄老城区，代表作《夜色里的城市切片》《早市三小时》。">查看档案</button>
+        </article>
+        <article class="kk-author">
+          <div class="kk-avatar a2">快</div>
+          <h3>快门与风</h3>
+          <div class="kk-field">实用技巧 · 摄影教程</div>
+          <p class="kk-bio">前摄影记者，现在专注做普通人能看懂的影像教程。喜欢用具体数据讲清楚一件事，比如同一场景在不同光圈下的差异。频道里最受欢迎的是“一年拍一棵树”系列，已有数百位观众跟着完成自己的年度计划。</p>
+          <div class="kk-nums"><span>作品 61</span><span>粉丝 9.8 万</span></div>
+          <button class="kk-link-btn" type="button" data-kk-author="快门与风|实用技巧与摄影教程，作品 61 条，粉丝 9.8 万。擅长把专业参数讲成人人能懂的语言，代表作《一台相机拍完四季》。">查看档案</button>
+        </article>
+        <article class="kk-author">
+          <div class="kk-avatar a3">周</div>
+          <h3>老周不剪辑</h3>
+          <div class="kk-field">行业观察 · 长视频</div>
+          <p class="kk-bio">从业六年的视频制作人，坚持做十分钟以上的长内容。擅长用平静的语气讲行业里不太好听的真话，也会认真回复评论区里每一条关于职业选择的提问。多次参与 st站kiki 官方圆桌对谈，是社区里被信任的“老前辈”。</p>
+          <div class="kk-nums"><span>作品 43</span><span>粉丝 7.6 万</span></div>
+          <button class="kk-link-btn" type="button" data-kk-author="老周不剪辑|行业观察与长视频创作，作品 43 条，粉丝 7.6 万。关注创作者生存状态与内容生态，代表作《我为什么坚持做长视频》。">查看档案</button>
+        </article>
+        <article class="kk-author">
+          <div class="kk-avatar a4">小</div>
+          <h3>锅里的小林</h3>
+          <div class="kk-field">美食烹饪 · 治愈影像</div>
+          <p class="kk-bio">白天上班，晚上做饭。把固定机位摆在灶台边，记录一顿家常菜从备料到上桌的全过程。画面朴素，但很多人说看完会想认真吃一顿饭。近期开始尝试把厨房声音单独做成音频，收到不少观众的手写留言。</p>
+          <div class="kk-nums"><span>作品 118</span><span>粉丝 15.2 万</span></div>
+          <button class="kk-link-btn" type="button" data-kk-author="锅里的小林|美食烹饪与治愈影像，作品 118 条，粉丝 15.2 万。以固定机位记录真实厨房，代表作《厨房里的十分钟》。">查看档案</button>
+        </article>
+        <article class="kk-author">
+          <div class="kk-avatar">阿</div>
+          <h3>阿岚的镜头</h3>
+          <div class="kk-field">日常记录 · 生活随笔</div>
+          <p class="kk-bio">自由职业者，喜欢在清晨出门，赶在人群之前记录城市。作品多为五分钟以内的短纪录，强调“拍完就走，不打扰”。她坚持每条视频都写一段拍摄手记，放在官网的个人页里，成为许多观众的习惯性阅读。</p>
+          <div class="kk-nums"><span>作品 74</span><span>粉丝 8.1 万</span></div>
+          <button class="kk-link-btn" type="button" data-kk-author="阿岚的镜头|日常记录与生活随笔，作品 74 条，粉丝 8.1 万。擅长清晨短纪录与拍摄手记，代表作《早市三小时》。">查看档案</button>
+        </article>
+        <article class="kk-author">
+          <div class="kk-avatar a2">幕</div>
+          <h3>幕后小组</h3>
+          <div class="kk-field">创作幕后 · 品牌故事</div>
+          <p class="kk-bio">三人组成的幕后记录小队，专门拍摄“拍摄的人”。他们跟过剪辑室、录音棚和片场，记录创作过程中那些不被看见的重复劳动。小组坚持所有素材获得被摄者授权，作品常被用作行业新人了解工作流程的入门材料。</p>
+          <div class="kk-nums"><span>作品 38</span><span>粉丝 6.3 万</span></div>
+          <button class="kk-link-btn" type="button" data-kk-author="幕后小组|创作幕后与品牌故事，作品 38 条，粉丝 6.3 万。专注记录创作者的真实工作状态，代表作《剪辑室的凌晨三点》。">查看档案</button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 社区评价 ============ -->
+  <section class="kk-section-dark kk-pad" id="kk-cmt">
+    <div class="kk-wrap">
+      <div class="kk-sec-head">
+        <div>
+          <div class="kk-eyebrow">VOICES · 社区口碑</div>
+          <h2 class="kk-sec-title">社区评价：st站kiki 被用户反复提到的六个理由</h2>
+          <p>以下评价来自不同使用时长、不同观看偏好的用户，长度与关注点各不相同。</p>
+        </div>
+        <span class="kk-btn kk-btn-sm" style="pointer-events:none">综合评分 4.8 / 5</span>
+      </div>
+      <div class="kk-cmt-grid">
+        <article class="kk-cmt">
+          <p>“我最喜欢的是这里的评论区还算安静。看《早市三小时》的时候，下面有人认真讨论收音设备，也有人贴出自己城市早市的照片，没有人吵架，这种氛围很难得。”</p>
+          <div class="kk-cmt-foot"><span>用户 · 南栀</span><span class="kk-star">★★★★★</span></div>
+        </article>
+        <article class="kk-cmt">
+          <p>“从创作者角度说，官方推荐位不只看播放量这点很重要。我的一条片子播放一般，但完播率不错，后来被放进了专题，涨了两千多粉丝。能感觉到平台在认真看内容。”</p>
+          <div class="kk-cmt-foot"><span>创作者 · 小满的日常</span><span class="kk-star">★★★★★</span></div>
+        </article>
+        <article class="kk-cmt">
+          <p>“高清是真的高清。我在电视上投屏看过《夜色里的城市切片》，暗部细节保留得很好，不是那种压得很糊的压缩感。对喜欢看画面的人来说挺加分。”</p>
+          <div class="kk-cmt-foot"><span>用户 · 陈默</span><span class="kk-star">★★★★☆</span></div>
+        </article>
+        <article class="kk-cmt">
+          <p>“专题企划把同题材内容串起来了，这点比一条条刷视频舒服。我顺着《镜头里的日常》把十二期都看完了，还找到了三个想长期关注的作者。”</p>
+          <div class="kk-cmt-foot"><span>用户 · 一颗松果</span><span class="kk-star">★★★★★</span></div>
+        </article>
+        <article class="kk-cmt">
+          <p>“投诉过一次搬运，处理得比我想象中快，第二天就下架了，还回了一封说明邮件。虽然不是什么大事，但会觉得平台是站在原创这边的。”</p>
+          <div class="kk-cmt-foot"><span>创作者 · 木见</span><span class="kk-star">★★★★★</span></div>
+        </article>
+        <article class="kk-cmt">
+          <p>“希望以后能多一点关于剪辑软件选择的教程，现在偏摄影的多一些。整体还是很好的，每周都会上来看一眼更新。”</p>
+          <div class="kk-cmt-foot"><span>用户 · 阿栗</span><span class="kk-star">★★★★☆</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 企业动态 ============ -->
+  <section class="kk-pad" id="kk-biz">
+    <div class="kk-wrap">
+      <div class="kk-sec-head">
+        <div>
+          <div class="kk-eyebrow">NEWSROOM · 企业动态</div>
+          <h2 class="kk-sec-title">企业动态：st站kiki 官方发布的近期更新</h2>
+          <p>品牌资讯、内容更新与规则调整，都会在这里同步发布。</p>
+        </div>
+      </div>
+      <div class="kk-biz-grid">
+        <article class="kk-biz">
+          <time datetime="2026-11-22">2026-11-22</time>
+          <h3>冬季企划《镜头里的日常》上线，新增 46 条高清原创视频</h3>
+          <p>本期企划聚焦“普通一天”，官方编辑部同步开放专题页与投稿入口，优质作品将进入官网焦点位展示。</p>
+        </article>
+        <article class="kk-biz">
+          <time datetime="2026-11-15">2026-11-15</time>
+          <h3>创作者扶持计划第三期名单公布，28 位创作者入选</h3>
+          <p>入选者将获得设备借用、剪辑指导与为期三个月的官方推荐位支持，第四期申请预计在明年春季开放。</p>
+        </article>
+        <article class="kk-biz">
+          <time datetime="2026-11-08">2026-11-08</time>
+          <h3>社区月报第 41 期发布：违规处理与规则优化说明</h3>
+          <p>本期公开搬运投诉处理数据，并优化了评论区举报入口的位置，方便用户更快速地反馈问题。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="kk-section-dark kk-pad" id="kk-faq">
+    <div class="kk-wrap">
+      <div class="kk-sec-head" style="justify-content:center;text-align:center">
+        <div>
+          <div class="kk-eyebrow" style="text-align:center">HELP · 帮助中心</div>
+          <h2 class="kk-sec-title">关于 st站kiki 的常见问题</h2>
+        </div>
+      </div>
+      <div class="kk-faq">
+        <details open>
+          <summary>st站kiki 是一个什么样的平台？</summary>
+          <p>st站kiki 是一个以原创视频为核心的社区平台，官方网站同步发布品牌公告、专题企划、创作者档案与社区规则。我们鼓励真实记录与长期更新，重视内容品质与版权保护。</p>
+        </details>
+        <details>
+          <summary>如何成为平台的创作者并发布作品？</summary>
+          <p>可以通过官网“加入社区”入口进入投稿流程，完成基础资料填写后即可上传作品。平台会对原创性进行核验，首次投稿建议附上拍摄素材或创作说明，以便更快通过审核。</p>
+        </details>
+        <details>
+          <summary>官方推荐位是怎么选出来的？</summary>
+          <p>首页焦点位每周更新，由编辑团队与社区投票共同决定，不单纯依据播放量。我们会综合完播率、评论质量、内容原创度与专题匹配度进行判断，并定期复核已推荐内容。</p>
+        </details>
+        <details>
+          <summary>平台对搬运和二次剪辑有什么规定？</summary>
+          <p>未经授权搬运他人作品，或将他人素材简单拼接包装为原创，均属于违规行为。平台接受投诉并会在核实后处理，情节严重的账号将被限制推荐位或暂停发布权限。</p>
+        </details>
+        <details>
+          <summary>《城市影像挑战赛》如何报名？</summary>
+          <p>在专题页进入挑战赛详情，按页面提示提交作品标题、简介与成片链接即可报名。本届投稿截止时间为 12 月 8 日，评审结果将在官网与公告条同步公布。</p>
+        </details>
+        <details>
+          <summary>我可以和企业或品牌合作拍摄内容吗？</summary>
+          <p>可以。平台设有品牌合作通道，会协助创作者与企业沟通需求，同时要求所有合作内容明确标注合作属性，确保观众知情，也保护创作者的表达空间。</p>
+        </details>
+        <details>
+          <summary>遇到问题如何联系官方团队？</summary>
+          <p>可通过页脚的官方邮箱或帮助中心反馈入口提交问题。涉及版权投诉时，请尽量附上作品链接、权属证明与具体说明，以便团队更快处理。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 合作 + 投稿 ============ -->
+  <section class="kk-pad" id="kk-join">
+    <div class="kk-wrap">
+      <div class="kk-sec-head">
+        <div>
+          <div class="kk-eyebrow">PARTNERS · 合作与投稿</div>
+          <h2 class="kk-sec-title">与 st站kiki 一起，让更多好内容被看见</h2>
+          <p>我们与内容机构、文化单位与品牌方保持长期合作，也欢迎每一位创作者通过官方入口投稿。</p>
+        </div>
+      </div>
+      <div class="kk-partner-grid" style="margin-bottom:26px">
+        <div class="kk-partner"><span class="kk-partner-mark">文</span>城市文化记录中心</div>
+        <div class="kk-partner"><span class="kk-partner-mark">影</span>光影影像工作室</div>
+        <div class="kk-partner"><span class="kk-partner-mark">器</span>器材体验联盟</div>
+        <div class="kk-partner"><span class="kk-partner-mark">创</span>青年创作基金会</div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+        <button class="kk-btn kk-btn-primary" type="button" id="kkJoinBtn">我要投稿 / 报名</button>
+        <button class="kk-btn" type="button" data-kk-share>分享本页</button>
+        <span class="kk-mut" style="font-size:.82rem">官方投稿邮箱：submit@stkiki.example（仅示例，请以帮助中心为准）</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ 页脚 ============ -->
+<footer class="kk-footer">
+  <div class="kk-wrap">
+    <div class="kk-foot-grid">
+      <div class="kk-foot-brand">
+        <div class="kk-logo">
+          <span class="kk-logo-mark">K</span>
+          <span class="kk-logo-txt">st站<span>kiki</span></span>
+        </div>
+        <p>st站kiki 官方网站 | 原创视频社区。我们持续深耕视频垂直领域，坚持正版高清与真实表达，为创作者与企业搭建值得信赖的内容生态。</p>
+      </div>
+      <div class="kk-foot-col">
+        <h4>探索</h4>
+        <a href="#kk-focus">焦点内容</a>
+        <a href="#kk-videos">热门视频</a>
+        <a href="#kk-topic">专题企划</a>
+        <a href="#kk-author">创作者矩阵</a>
+      </div>
+      <div class="kk-foot-col">
+        <h4>关于</h4>
+        <a href="#kk-parse">品牌解析</a>
+        <a href="#kk-biz">企业动态</a>
+        <a href="#kk-cmt">社区口碑</a>
+        <a href="#kk-faq">帮助中心</a>
+      </div>
+      <div class="kk-foot-col">
+        <h4>参与</h4>
+        <a href="#kk-join">投稿入口</a>
+        <span>创作者扶持计划</span>
+        <span>城市影像挑战赛</span>
+        <span>品牌合作通道</span>
+      </div>
+    </div>
+    <div class="kk-foot-bottom">
+      <span>© 2026 st站kiki 官方网站 · 版权所有 · 持续运营中</span>
+      <span>备案号：示例备 2026000000 号 · 内容均标注原创来源</span>
+    </div>
+  </div>
+</footer>
+
+<button class="kk-top-btn" id="kkTopBtn" type="button" aria-label="回到顶部">↑</button>
+<div class="kk-toast" id="kkToast" role="status" aria-live="polite"></div>
+
+<div class="kk-modal-mask" id="kkModalMask">
+  <div class="kk-modal" role="dialog" aria-modal="true" aria-labelledby="kkModalTitle">
+    <button class="kk-close" id="kkModalClose" type="button" aria-label="关闭">✕</button>
+    <h3 id="kkModalTitle">提示</h3>
+    <div id="kkModalBody"></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var toastEl = document.getElementById('kkToast');
+  var toastTimer = null;
+  function showToast(msg){
+    toastEl.textContent = msg;
+    toastEl.classList.add('on');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toastEl.classList.remove('on'); }, 2000);
+  }
+
+  /* 移动端导航 */
+  var navToggle = document.getElementById('kkNavToggle');
+  var navLinks = document.getElementById('kkNavLinks');
+  navToggle.addEventListener('click', function(){
+    var on = navLinks.classList.toggle('on');
+    navToggle.setAttribute('aria-expanded', on ? 'true' : 'false');
+    navToggle.textContent = on ? '✕' : '☰';
+  });
+  navLinks.addEventListener('click', function(e){
+    if(e.target.tagName === 'A'){
+      navLinks.classList.remove('on');
+      navToggle.setAttribute('aria-expanded','false');
+      navToggle.textContent = '☰';
+    }
+  });
+
+  /* 搜索反馈 */
+  var searchInput = document.getElementById('kkSearchInput');
+  var searchBtn = document.getElementById('kkSearchBtn');
+  var searchFeed = document.getElementById('kkSearchFeedback');
+  function doSearch(){
+    var q = (searchInput.value || '').trim();
+    if(!q){
+      searchFeed.textContent = '请输入关键词，例如“城市”“剪辑”“早市”。';
+      searchFeed.classList.add('on');
+      return;
+    }
+    searchFeed.textContent = '已为你匹配“' + q + '”相关的 12 条内容：其中 5 条来自创作者矩阵，7 条来自专题企划。';
+    searchFeed.classList.add('on');
+  }
+  searchBtn.addEventListener('click', doSearch);
+  searchInput.addEventListener('keydown', function(e){
+    if(e.key === 'Enter'){ e.preventDefault(); doSearch(); }
+  });
+  searchInput.addEventListener('input', function(){
+    if(!searchInput.value.trim()){ searchFeed.classList.remove('on'); }
+  });
+
+  /* 点赞 / 收藏切换 */
+  document.addEventListener('click', function(e){
+    var like = e.target.closest('[data-kk-like]');
+    if(like){
+      var on = like.classList.toggle('is-on');
+      like.textContent = on ? '♥ 已赞' : '♡ 点赞';
+      showToast(on ? '感谢点赞，已记入你本周的互动' : '已取消点赞');
+      return;
+    }
+    var fav = e.target.closest('[data-kk-fav]');
+    if(fav){
+      var f = fav.classList.toggle('is-on');
+      fav.textContent = f ? '★ 已收藏' : '☆ 收藏';
+      showToast(f ? '已收藏，可在个人页查看' : '已取消收藏');
+      return;
+    }
+    var share = e.target.closest('[data-kk-share]');
+    if(share){
+      var link = 'st站kiki 官方网站 · 原创视频社区';
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(link).then(function(){
+          showToast('页面信息已复制，可分享给朋友');
+        }).catch(function(){
+          showToast('复制失败，请手动分享');
+        });
+      } else {
+        showToast('页面信息：' + link);
+      }
+      return;
+    }
+    var t = e.target.closest('[data-kk-toast]');
+    if(t){
+      showToast(t.getAttribute('data-kk-toast'));
+      return;
+    }
+  });
+
+  /* 弹窗 */
+  var mask = document.getElementById('kkModalMask');
+  var modalTitle = document.getElementById('kkModalTitle');
+  var modalBody = document.getElementById('kkModalBody');
+  function openModal(title, html){
+    modalTitle.textContent = title;
+    modalBody.innerHTML = html;
+    mask.classList.add('on');
+  }
+  function closeModal(){ mask.classList.remove('on'); }
+  document.getElementById('kkModalClose').addEventListener('click', closeModal);
+  mask.addEventListener('click', function(e){ if(e.target === mask) closeModal(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeModal(); });
+
+  /* 作者档案 */
+  document.addEventListener('click', function(e){
+    var a = e.target.closest('[data-kk-author]');
+    if(a){
+      var parts = a.getAttribute('data-kk-author').split('|');
+      openModal(parts[0] + ' · 创作者档案',
+        '<p>' + parts[1] + '</p>' +
+        '<div class="kk-actions"><button class="kk-act-btn" type="button" data-kk-toast="已关注 ' + parts[0] + '">+ 关注</button>' +
+        '<button class="kk-act-btn" type="button" data-kk-toast="已通过官方渠道发送联系请求">联系合作</button></div>');
+    }
+  });
+
+  /* 投稿弹窗 */
+  document.getElementById('kkJoinBtn').addEventListener('click', function(){
+    openModal('投稿与报名',
+      '<p>欢迎向 st站kiki 官方网站投稿。请准备：作品标题、3 分钟以内的成片、创作说明（不少于 100 字）以及素材授权说明。</p>' +
+      '<p style="margin-top:10px">本届《城市影像挑战赛》报名截止 12 月 8 日，入选作品将获得官方推荐位与评审反馈。</p>' +
+      '<div class="kk-actions"><button class="kk-act-btn" type="button" data-kk-toast="投稿通道已登记，请留意帮助中心通知">确认登记</button>' +
+      '<button class="kk-act-btn" type="button" data-kk-toast="已为你打开参赛说明">查看参赛说明</button></div>');
+  });
+
+  /* 回到顶部 */
+  var topBtn = document.getElementById('kkTopBtn');
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > 520){ topBtn.classList.add('on'); }
+    else { topBtn.classList.remove('on'); }
+  }, { passive:true });
+  topBtn.addEventListener('click', function(){
+    window.scrollTo({ top:0, behavior:'smooth' });
+  });
+
+  /* 锚点滚动偏移（预留吸顶公告+页头高度） */
+  var headered = document.querySelectorAll('.kk-topbar');
+  function offsetForAnchors(){
+    var topbar = document.querySelector('.kk-topbar');
+    var h = topbar ? topbar.getBoundingClientRect().height : 0;
+    document.documentElement.style.setProperty('--kk-head', h + 'px');
+    return h;
+  }
+  document.addEventListener('click', function(e){
+    var link = e.target.closest('a[href^="#"]');
+    if(!link) return;
+    var id = link.getAttribute('href');
+    if(!id || id === '#') return;
+    var target = document.querySelector(id);
+    if(!target) return;
+    e.preventDefault();
+    var h = offsetForAnchors();
+    var top = target.getBoundingClientRect().top + window.scrollY - h - 10;
+    window.scrollTo({ top: top, behavior:'smooth' });
+  });
+  window.addEventListener('resize', offsetForAnchors);
+  offsetForAnchors();
+})();
+</script>
+</body>
+    </html>
